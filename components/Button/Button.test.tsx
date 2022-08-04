@@ -1,6 +1,5 @@
 import React from "react";
-import { render, screen } from "@/test-utils";
-import userEvent from "@testing-library/user-event";
+import { render, screen, fireEvent } from "@/test-utils";
 import { Button } from "./Button";
 
 describe("Button test cases :", () => {
@@ -13,7 +12,7 @@ describe("Button test cases :", () => {
     const onClick = jest.fn();
     render(<Button onClick={onClick}>Button</Button>);
     const btnElement = screen.getByRole("button");
-    userEvent.click(btnElement);
+    fireEvent.click(btnElement);
     expect(onClick).toHaveBeenCalled();
   });
 });
